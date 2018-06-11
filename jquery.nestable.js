@@ -373,6 +373,9 @@
 
         _buildItem: function(item, options) {
             function escapeHtml(text) {
+            	
+            	text += "";
+            	
                 var map = {
                     '&': '&amp;',
                     '<': '&lt;',
@@ -381,7 +384,7 @@
                     "'": '&#039;'
                 };
 
-                return text + "".replace(/[&<>"']/g, function(m) { return map[m]; });
+                return text.replace(/[&<>"']/g, function(m) { return map[m]; });
             }
 
             function filterClasses(classes) {
@@ -500,7 +503,7 @@
 
                 pid = $(item).parent(o.listNodeName).parent(o.itemNodeName).attr('data-id') || '';
                 if (isInt(pid)) {
-                    pid = parseInt(pid);
+                    id = parseInt(pid);
                 }
 
                 if (id) {
