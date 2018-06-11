@@ -373,6 +373,8 @@
 
         _buildItem: function(item, options) {
             function escapeHtml(text) {
+                text += text;
+                
                 var map = {
                     '&': '&amp;',
                     '<': '&lt;',
@@ -381,7 +383,7 @@
                     "'": '&#039;'
                 };
 
-                return text + "".replace(/[&<>"']/g, function(m) { return map[m]; });
+                return text.replace(/[&<>"']/g, function(m) { return map[m]; });
             }
 
             function filterClasses(classes) {
